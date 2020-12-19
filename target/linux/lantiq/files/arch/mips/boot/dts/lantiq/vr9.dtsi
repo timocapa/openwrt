@@ -538,7 +538,7 @@
 		};
 
 		pci0: pci@e105400 {
-			status = "disabled";
+			#status = "disabled";
 
 			#address-cells = <3>;
 			#size-cells = <2>;
