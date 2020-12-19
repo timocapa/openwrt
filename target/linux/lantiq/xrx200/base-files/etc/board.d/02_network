@@ -50,6 +50,9 @@ lantiq_setup_interfaces()
 	*)
 		ucidef_set_interface_lan 'eth0'
 		;;
+	avm,fritz7490)
+		unidef_set_interface_lan "lan1 lan2 lan3 lan4 lan5"
+		;;
 	esac
 }
 
@@ -67,7 +70,8 @@ lantiq_setup_dsl()
 	avm,fritz7360sl|\
 	avm,fritz7362sl|\
 	avm,fritz7412|\
-	avm,fritz7430)
+	avm,fritz7430|\
+	avm,fritz7490)
 		annex="b"
 		;;
 	esac
@@ -114,6 +118,7 @@ lantiq_setup_macs()
 		wan_mac=$(macaddr_add "$(mtd_get_mac_binary urlader 0xa91)" 1)
 		;;
 	avm,fritz3390|\
+	avm,fritz7490|\
 	avm,fritz7362sl)
 		lan_mac=$(fritz_tffs -n maca -i $(find_mtd_part "tffs (1)"))
 		wan_mac=$(fritz_tffs -n macdsl -i $(find_mtd_part "tffs (1)"))
