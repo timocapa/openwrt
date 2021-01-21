@@ -8,6 +8,10 @@ DEVICE_VARS += LOADER_FLASH_MAX LOADER_KERNEL_MAGIC
 DEVICE_VARS += NETGEAR_BOARD_ID NETGEAR_HW_ID
 DEVICE_VARS += RAS_BOARD RAS_ROOTFS_SIZE RAS_VERSION
 
+define Build/force-build-wasp_uploader
+	touch $(TOPDIR)/package/utils/wasp_uploader/Makefile
+endef
+
 define Build/combined-image
 	sh $(TOPDIR)/scripts/combined-image.sh \
 		"$(IMAGE_KERNEL)" \
