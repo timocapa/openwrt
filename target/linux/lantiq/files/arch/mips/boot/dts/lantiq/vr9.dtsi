@@ -478,7 +478,7 @@
 					reset-names = "gphy";
 				};
 			};
-		};
+                };
 
 		eth0: eth@e10b308 {
 			compatible = "lantiq,xrx200-net";
@@ -538,7 +538,7 @@
 		};
 
 		pci0: pci@e105400 {
-			#status = "disabled";
+			status = "disabled";
 
 			#address-cells = <3>;
 			#size-cells = <2>;
