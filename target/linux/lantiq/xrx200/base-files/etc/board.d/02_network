@@ -37,6 +37,19 @@ lantiq_setup_interfaces()
 	avm,fritz7362sl|\
 	avm,fritz7430|\
 	buffalo,wbmr-300hpd|\
+	avm,fritz3490|\
+	avm,fritz5490|\
+	avm,fritz7490)
+		ucidef_set_interface_lan "lan1 lan2 lan3 lan4 lan5"
+		;;
+	bt,homehub-v5a)
+		ucidef_add_switch "switch0" \
+			"0:lan:3" "1:lan:4" "2:lan:2" "4:lan:1" "5:wan:5" "6t@eth0"
+		;;
+	buffalo,wbmr-300hpd)
+		ucidef_add_switch "switch0" \
+			"5:lan:2" "2:lan:3" "3:lan:4" "4:wan:1" "6t@eth0"
+		;;
 	tplink,tdw8970|\
 	tplink,tdw8980|\
 	tplink,vr200|\
@@ -118,8 +131,10 @@ lantiq_setup_macs()
 		wan_mac=$(macaddr_add "$(mtd_get_mac_binary urlader 0xa91)" 1)
 		;;
 	avm,fritz3390|\
-	avm,fritz7490|\
-	avm,fritz7362sl)
+	avm,fritz3490|\
+	avm,fritz5490|\
+	avm,fritz7362sl|\
+	avm,fritz7490)
 		lan_mac=$(fritz_tffs -n maca -i $(find_mtd_part "tffs (1)"))
 		wan_mac=$(fritz_tffs -n macdsl -i $(find_mtd_part "tffs (1)"))
 		;;
