@@ -232,7 +232,7 @@ define Device/avm_fritz7490
   DEVICE_MODEL := FRITZ!Box 7490
   KERNEL_SIZE := 4096k
   IMAGE_SIZE := 49152k
-  DEVICE_PACKAGES := kmod-usb3 fritz-tffs wasp_uploader \
+  DEVICE_PACKAGES := kmod-usb3 kmod-usb-xhci-pci-renesas fritz-tffs wasp_uploader \
 	-kmod-owl-loader -dsl-vrx200-firmware-xdsl-a -dsl-vrx200-firmware-xdsl-b-patch
 endef
 TARGET_DEVICES += avm_fritz7490
